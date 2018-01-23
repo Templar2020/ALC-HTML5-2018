@@ -7,37 +7,48 @@
         <h1>Adventure Game v1.0</h1>
         <p>Made by: Mr Powell</p>
         <script>
-                   
-            /*alert("Robot: 'Ding fries are done!' ");
-            confirm("Are you going to eat those fries?");
-            prompt("How did you like your fries?");*/
+            Start();
             
-            var favColor = prompt("What is your favorite color?").toLowerCase();
+            function Start(){
+                
+                var playerName = prompt("What is your name traveller?");
+                
+                alert("Welcome to the land of yabba dabba doo, " + playerName);
+                
+                var startGame = confirm("Are you ready to begin your adventure?");
+                
+                    if(startGame){
+                       Village(); 
+                    }
+                    else{
+                        alert("Goodbye!");
+                    }
             
-            if(favColor == "blue"){
-                alert("The sky is blue!");
-            }
-            else if(favColor == "red"){
-                alert("Red is the color of love!");
-            }
-            else if(favColor == "green"){
-                alert("Green is the color of grass!");
-            }
-            else if(favColor == "yellow"){
-                alert("Yellow is the color of the sun!");
-            }
-            else if(favColor == "orange"){
-                alert("Orange is the color of citrus!");
-            }
-            else if(favColor == "purple"){
-                alert("Purple is the color of flowers!");
-            }
-            else{
-                alert("That is not a color!!!");
             }
             
-           
-            
+            function Village(){
+                var village = prompt("You arrive at a small village. There is a blacksmith, inn, stable and several wooden homes").toLowerCase();
+                
+                switch(village){
+                                          
+                    case "blacksmith":
+                        alert("The blacksmith scowls at you and mumbles something rude! You walk away intimidated.")
+                    break;
+                    case "inn":
+                        alert("You enter the old weather torn inn. The innkeeper asks what he can do for you? Rent a room. Buy food. Sit by the hearth fire. ");
+                    break;    
+                    case "stable":
+                        alert("The stable master informs you that all of the horses have been stolen last night. He asks you for your help?");
+                    break;
+                    default:
+                        alert("I do not understand " + village);
+                    break;
+                }
+                
+                
+                
+            }
+          
         
         </script>
     </body>
