@@ -7,6 +7,14 @@
         <h1>Adventure Game v1.0</h1>
         <p>Made by: Mr Powell</p>
         <script>
+            // Javascript Object for an inventory
+            var inventory = {
+                coins:1000,
+                bread:0,
+                sword:0,
+            }
+            
+            
             Start();
             
             function Start(){
@@ -29,19 +37,52 @@
             function Village(){
                 var village = prompt("You arrive at a small village. There is a blacksmith, inn, stable and several wooden homes").toLowerCase();
                 
+                
+                function Blacksmith(){
+                    
+                }
                 switch(village){
                                           
                     case "blacksmith":
-                        alert("The blacksmith scowls at you and mumbles something rude! You walk away intimidated.")
+                        alert("The blacksmith scowls at you and mumbles something rude! You walk away intimidated.");
+                        
+                        var blacksmith = prompt("What do you want to buy? \n - sword \n -shield \n - armor");
+                            if(blacksmith == "sword" || blacksmith == "buy sword" && inventory.coins >= 100){
+                                var swordBuy = confirm("Are you sure you want to buy this sword?");
+                                    if(swordBuy){
+                                       // Adds sword +1
+                                        inventory.sword ++;
+                                        // displays swords owned
+                                        alert("You own " +inventory.sword+" swords");
+                                        // Takes money out of account for sword
+                                        inventory.coins = inventory.coins - 100;
+                                        // displays coins left in account
+                                        alert("You have "+inventory.coins+" coins remaining");                                       
+                                    }
+                                    else{
+                                    alert("Have a good day, come back again!");
+                                    Village();    
+                                }
+                                                                   
+                            }
+                        
+                        Village();
                     break;
                     case "inn":
                         alert("You enter the old weather torn inn. The innkeeper asks what he can do for you? Rent a room. Buy food. Sit by the hearth fire. ");
+                        Village();
                     break;    
                     case "stable":
                         alert("The stable master informs you that all of the horses have been stolen last night. He asks you for your help?");
+                        Village();
                     break;
+                    case "exit":
+                        alert("Run away, chicken! THE END");
+                    break;
+                        
                     default:
                         alert("I do not understand " + village);
+                        Village();
                     break;
                 }
                 
